@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Railway UV Browser</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/uv/uv.bundle.js" defer></script>
+  <script src="/uv/uv.config.js" defer></script>
+  <script src="/baremux/index.js" defer></script>
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">UV Browser</div>
+      <button id="newTabBtn" class="primary-btn">+ New tab</button>
+
+      <section class="panel">
+        <div class="panel-title">Bookmarks</div>
+        <div id="bookmarks" class="bookmark-list"></div>
+        <div class="row gap-sm">
+          <input id="bookmarkName" class="text-input" placeholder="Bookmark name" />
+          <button id="saveBookmarkBtn" class="secondary-btn">Save</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">History</div>
+        <div id="historyList" class="history-list"></div>
+        <button id="clearHistoryBtn" class="ghost-btn full">Clear history</button>
+      </section>
+
+      <section class="panel compact note-box">
+        <div class="panel-title">Notes</div>
+        <p>About:blank cloaking is not included. This build focuses on a normal browser-style UI and a current Ultraviolet server setup.</p>
+      </section>
+    </aside>
+
+    <main class="browser-area">
+      <div class="window-frame">
+        <div class="titlebar">
+          <div class="window-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div id="tabStrip" class="tab-strip"></div>
+        </div>
+
+        <div class="toolbar">
+          <div class="nav-group">
+            <button id="backBtn" class="tool-btn">←</button>
+            <button id="forwardBtn" class="tool-btn">→</button>
+            <button id="reloadBtn" class="tool-btn">↻</button>
+          </div>
+          <form id="addressForm" class="address-form">
+            <input id="addressBar" class="address-bar" placeholder="Search or enter a URL" autocomplete="off" />
+          </form>
+          <div class="action-group">
+            <button id="openBtn" class="primary-btn">Open</button>
+          </div>
+        </div>
+
+        <div class="viewer-header">
+          <div id="statusText">Ready</div>
+          <div id="activeUrlText" class="muted"></div>
+        </div>
+
+        <div class="viewer-wrap">
+          <iframe id="browserFrame" title="Proxy browser"></iframe>
+          <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <div>Loading…</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
